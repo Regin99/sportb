@@ -42,7 +42,7 @@ export const cartSlice = createSlice({
     removeItem(state, action: PayloadAction<{id: number; price: string}>) {
       const {id, price} = action.payload;
       const item = state.items.find(i => i.id === id);
-      const priceValue = parseFloat(price.slice(1));
+      const priceValue = parseFloat(price.slice(0, -1));
 
       if (item) {
         if (item.quantity > 1) {
